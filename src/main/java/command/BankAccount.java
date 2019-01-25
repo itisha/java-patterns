@@ -5,17 +5,19 @@ package command;
  */
 public class BankAccount {
 
-    int balance = 0;
-    int overdraftLimit = -500;
+    private int balance = 0;
+    private int overdraftLimit = -500;
 
     public void deposit(int amount) {
         balance += amount;
     }
 
-    public void widthdraw(int amount) {
+    public boolean widthdraw(int amount) {
         if (balance - amount > overdraftLimit) {
             balance -= amount;
+            return true;
         }
+        return false;
     }
 
     @Override

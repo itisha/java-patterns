@@ -1,7 +1,11 @@
 package command;
 
 
+import com.google.common.collect.Lists;
 import command.BankAccountCommand.Action;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by t on 1/22/2019.
@@ -11,13 +15,20 @@ public class Demo {
         BankAccount ba = new BankAccount();
         System.out.println(ba);
 
-        Lists.of(new BankAccountCommand(ba, Action.DEPOSIT, 100),
-                new BankAccountCommand(ba, Action.WIDTHDRAW, 50),
+        List<BankAccountCommand> commands = new ArrayList<>(List.of(
+                new BankAccountCommand(ba, Action.DEPOSIT, 100),
                 new BankAccountCommand(ba, Action.WIDTHDRAW, 1000))
+        );
 
-                .forEach(command -> {
-                    command.call();
-                    System.out.println(ba);
-                });
+        commands.forEach(command -> {
+            command.call();
+            System.out.println(ba);
+        });
+
+
+        Lists.reverse(commands).forEach(command -> {
+            command.undo();
+            System.out.println(ba);
+        });
     }
 }

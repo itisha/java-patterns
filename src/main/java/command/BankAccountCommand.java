@@ -8,6 +8,7 @@ public class BankAccountCommand implements Command {
     private BankAccount bankAccount;
     private Action action;
     private int amount;
+    private boolean succeeded = true;
 
     public BankAccountCommand(BankAccount bankAccount, Action action, int amount) {
         this.bankAccount = bankAccount;
@@ -22,7 +23,7 @@ public class BankAccountCommand implements Command {
                 bankAccount.deposit(amount);
                 break;
             case WIDTHDRAW:
-                bankAccount.widthdraw(amount);
+                succeeded = bankAccount.widthdraw(amount);
                 break;
         }
     }
@@ -31,7 +32,9 @@ public class BankAccountCommand implements Command {
     public void undo() {
         switch (action) {
             case WIDTHDRAW:
-                bankAccount.deposit(amount);
+                if (succeeded) {
+                    bankAccount.deposit(amount);
+                }
                 break;
             case DEPOSIT:
                 bankAccount.widthdraw(amount);
