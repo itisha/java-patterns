@@ -27,6 +27,18 @@ public class BankAccountCommand implements Command {
         }
     }
 
+    @Override
+    public void undo() {
+        switch (action) {
+            case WIDTHDRAW:
+                bankAccount.deposit(amount);
+                break;
+            case DEPOSIT:
+                bankAccount.widthdraw(amount);
+                break;
+        }
+    }
+
     public enum Action {
         DEPOSIT, WIDTHDRAW
     }
