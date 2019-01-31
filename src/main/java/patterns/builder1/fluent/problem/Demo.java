@@ -1,4 +1,4 @@
-package patterns.builder1.solution;
+package patterns.builder1.fluent.problem;
 
 public class Demo {
 
@@ -7,8 +7,8 @@ public class Demo {
         EmployeeBuilder personBuilder = new EmployeeBuilder();
         Person tisha = personBuilder
                 .withName("Tisha")
-                .worksAt("Developer")
-
+                //not available since withName() returns PersonBuilder:
+                //.worksAt("Developer")
                 .build();
 
         System.out.println(tisha);

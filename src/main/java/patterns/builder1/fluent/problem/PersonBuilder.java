@@ -1,4 +1,4 @@
-package patterns.builder1.problem;
+package patterns.builder1.fluent.problem;
 
 public class PersonBuilder {
 
