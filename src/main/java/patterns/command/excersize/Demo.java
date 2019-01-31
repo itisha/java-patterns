@@ -1,4 +1,4 @@
-package command.excersize;
+package patterns.command.excersize;
 
 
 import org.junit.Assert;

@@ -1,4 +1,4 @@
-package command.excersize;
+package patterns.command.excersize;
 
 /**
  * Created by t on 1/22/2019.

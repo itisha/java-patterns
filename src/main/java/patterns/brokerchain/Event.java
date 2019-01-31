@@ -1,4 +1,4 @@
-package brokerchain;
+package patterns.brokerchain;
 
 import java.util.HashMap;
 import java.util.Map;

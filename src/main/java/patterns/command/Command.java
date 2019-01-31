@@ -1,4 +1,4 @@
-package command;
+package patterns.command;
 
 /**
  * Created by t on 1/22/2019.

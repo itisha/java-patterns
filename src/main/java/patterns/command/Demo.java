@@ -1,8 +1,8 @@
-package command;
+package patterns.command;
 
 
 import com.google.common.collect.Lists;
-import command.BankAccountCommand.Action;
+import patterns.command.BankAccountCommand.Action;
 
 import java.util.ArrayList;
 import java.util.List;
