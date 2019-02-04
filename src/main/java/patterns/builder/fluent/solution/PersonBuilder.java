@@ -1,4 +1,4 @@
-package patterns.builder1.fluent.solution;
+package patterns.builder.fluent.solution;
 
 public class PersonBuilder<T extends PersonBuilder<T>> {
 

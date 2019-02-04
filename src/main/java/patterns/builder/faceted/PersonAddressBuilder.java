@@ -1,4 +1,4 @@
-package patterns.builder1.faceted;
+package patterns.builder.faceted;
 
 public class PersonAddressBuilder extends PersonBuilder {
     public PersonAddressBuilder(Person person) {

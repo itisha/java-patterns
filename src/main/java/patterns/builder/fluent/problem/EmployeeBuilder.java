@@ -1,4 +1,4 @@
-package patterns.builder1.fluent.problem;
+package patterns.builder.fluent.problem;
 
 public class EmployeeBuilder extends PersonBuilder {
 

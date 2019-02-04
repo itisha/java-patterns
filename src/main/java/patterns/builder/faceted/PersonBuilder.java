@@ -1,4 +1,4 @@
-package patterns.builder1.faceted;
+package patterns.builder.faceted;
 
 //faceted builder
 //for complicated builders that require multiple smaller builders
