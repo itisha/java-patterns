@@ -1,6 +1,6 @@
 package patterns.builder1.faceted;
 
-public class PersonBuilder {
+public class PersonBuilder {//faceted builder
 
     protected Person person = new Person();
 
@@ -9,7 +9,7 @@ public class PersonBuilder {
         return this;
     }
 
-
+    //allows to switch between builders
     public PersonAddressBuilder lives() {
         return new PersonAddressBuilder(person);
     }
