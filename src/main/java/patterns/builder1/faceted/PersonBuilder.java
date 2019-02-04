@@ -1,6 +1,8 @@
 package patterns.builder1.faceted;
 
-public class PersonBuilder {//faceted builder
+//faceted builder
+//for complicated builders that require multiple smaller builders
+public class PersonBuilder {
 
     protected Person person = new Person();
 
