@@ -1,4 +1,4 @@
-package phenonena.generics.self.recurrinq;
+package phenomena.generics.self.recurrinq;
 
 public class Demo {
 
