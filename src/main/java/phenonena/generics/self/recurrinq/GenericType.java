@@ -1,6 +1,6 @@
 package phenonena.generics.self.recurrinq;
 
-public class GenericType<T> {
+public class GenericType<T extends GenericType<T>> {
 
     T element;
 
