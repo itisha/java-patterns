@@ -23,6 +23,6 @@ class Solution {
         if (j == null || s == null)
             return 0;
 
-        return (int) Stream.of(s.split("")).filter(j::contains).count();
+        return (int) Stream.of(s.split("")).filter(x -> j.indexOf(x) > -1).count();
     }
 }
