@@ -44,6 +44,13 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.eclipsesource.minimal-json/minimal-json -->
+        <dependency>
+            <groupId>com.eclipsesource.minimal-json</groupId>
+            <artifactId>minimal-json</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
 
     </dependencies>
 
