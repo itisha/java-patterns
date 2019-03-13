@@ -1,4 +1,4 @@
-package patterns.flyweight;
+package patterns.flyweight.store.names;
 
 import java.util.ArrayList;
 import java.util.Arrays;

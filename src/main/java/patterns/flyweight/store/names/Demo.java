@@ -1,4 +1,4 @@
-package patterns.flyweight;
+package patterns.flyweight.store.names;
 
 public class Demo {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package patterns.flyweight;
+package patterns.flyweight.store.names;
 
 class User {
     private String fullName;
