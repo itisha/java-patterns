@@ -1,4 +1,0 @@
-Observer
-Memento
-Mediator
-Command
