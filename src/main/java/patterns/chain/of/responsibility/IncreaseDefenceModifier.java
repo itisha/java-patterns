@@ -10,6 +10,6 @@ public class IncreaseDefenceModifier extends CreatureModifier {
     public void handle() {
         System.out.println("Increasing " + creature.name + "'s defence by 3");
         creature.defence += 3;
-        super.handle();//todo refactor for template method
+        super.handle();
     }
 }
