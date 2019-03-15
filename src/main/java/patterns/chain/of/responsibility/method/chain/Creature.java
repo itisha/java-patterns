@@ -1,4 +1,4 @@
-package patterns.chain.of.responsibility;
+package patterns.chain.of.responsibility.method.chain;
 
 public class Creature {
 
