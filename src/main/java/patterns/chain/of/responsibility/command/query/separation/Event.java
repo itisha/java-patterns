@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-//Command Query Separation QQS
+//Observable
 public class Event<T extends Query> {
 
     private int index = -1;
