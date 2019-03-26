@@ -1,5 +1,6 @@
 package patterns.chain.of.responsibility.command.query.separation;
 
+//Memento
 public class Query {
 
     public String creatureName;
