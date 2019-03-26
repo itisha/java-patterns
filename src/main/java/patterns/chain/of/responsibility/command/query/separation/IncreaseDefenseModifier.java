@@ -7,7 +7,7 @@ public class IncreaseDefenseModifier extends CreatureModifier {
         super(game, creature);
 
         game.queries.subscribe(q -> {
-            if (q.creatureName.equals(creature.name)
+            if (q.creatureName.equals(this.creature.name)
                     && q.argument == Query.Argument.DEFENSE) {
                 q.result += 3;
             }
