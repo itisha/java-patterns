@@ -8,7 +8,7 @@ public class DoubleAttackModifier extends CreatureModifier implements AutoClosea
         super(game, creature);
 
         token = game.queries.subscribe(q -> {
-            if (q.creatureName.equals(creature.name) && q.argument == Query.Argument.ATTACK) {
+            if (q.creatureName.equals(this.creature.name) && q.argument == Query.Argument.ATTACK) {
                 q.result *= 2;
             }
         });
