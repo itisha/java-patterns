@@ -9,6 +9,7 @@ public class Demo {
 
         // modifiers can be piled up
         IncreaseDefenseModifier icm = new IncreaseDefenseModifier(game, goblin);
+        System.out.println(goblin);
 
         try (DoubleAttackModifier dam = new DoubleAttackModifier(game, goblin)) {
             System.out.println(goblin);

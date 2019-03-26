@@ -5,12 +5,12 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 //Command Query Separation QQS
-public class Event<Args> {
+public class Event<T extends Query> {
 
     private int index = -1;
-    private Map<Integer, Consumer<Args>> handlers = new HashMap<>();
+    private Map<Integer, Consumer<T>> handlers = new HashMap<>();
 
-    public int subscribe(Consumer<Args> handler) {
+    public int subscribe(Consumer<T> handler) {
         handlers.put(++index, handler);
         return index;
     }
@@ -19,7 +19,7 @@ public class Event<Args> {
         handlers.remove(key);
     }
 
-    public void fire(Args args) {
-        handlers.values().forEach(handler -> handler.accept(args));
+    public void fire(T query) {
+        handlers.values().forEach(handler -> handler.accept(query));
     }
 }
