@@ -25,7 +25,7 @@ public class MyBlockingQueue<T> {
     boolean add(T entry) throws InterruptedException {
         lock.lock();
         try {
-            if (queue.size() >= max) {
+            while (queue.size() >= max) {
                 notFull.await();
             }
             boolean result = queue.add(entry);
@@ -39,7 +39,7 @@ public class MyBlockingQueue<T> {
     T remove() throws InterruptedException {
         lock.lock();
         try {
-            if (queue.size() == 0) {
+            while (queue.size() == 0) {
                 notEmpty.await();
             }
             T item = queue.remove();
