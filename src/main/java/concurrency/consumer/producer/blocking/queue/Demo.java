@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Demo {
 
-    private static volatile AtomicInteger index = new AtomicInteger(0);
+    private static AtomicInteger index = new AtomicInteger(0);
     private static volatile boolean stop = false;
 
     public static void main(String[] args) throws InterruptedException {
@@ -29,7 +29,7 @@ public class Demo {
         };
 
         Runnable consumer = () -> {
-            while (!stop) {
+            while (!(stop && queue.isEmpty())) {
                 try {
                     Integer value = queue.take();
                     if (value > 1000) {
@@ -44,12 +44,7 @@ public class Demo {
 
         new Thread(producer).start();
         new Thread(producer).start();
-        new Thread(producer).start();
 
-        new Thread(consumer).start();
-        new Thread(consumer).start();
-        new Thread(consumer).start();
-        new Thread(consumer).start();
         new Thread(consumer).start();
     }
 
