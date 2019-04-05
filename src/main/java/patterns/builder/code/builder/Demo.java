@@ -1,4 +1,4 @@
-package patterns.builder.code_builder;
+package patterns.builder.code.builder;
 
 import static junit.framework.TestCase.assertEquals;
 

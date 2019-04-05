@@ -1,4 +1,4 @@
-package patterns.builder.code_builder;
+package patterns.builder.code.builder;
 
 public class Field {
     public String name;
