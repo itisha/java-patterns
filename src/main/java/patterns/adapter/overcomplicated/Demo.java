@@ -1,4 +1,4 @@
-package patterns.adapter;
+package patterns.adapter.overcomplicated;
 
 import java.util.Arrays;
 import java.util.LinkedList;

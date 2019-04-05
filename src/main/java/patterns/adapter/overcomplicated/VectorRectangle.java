@@ -1,4 +1,4 @@
-package patterns.adapter;
+package patterns.adapter.overcomplicated;
 
 public class VectorRectangle extends VectorObject {
 
