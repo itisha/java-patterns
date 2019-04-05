@@ -30,6 +30,7 @@ public class CodeBuilder {
                     .append(field.type)
                     .append("\t")
                     .append(field.name)
+                    .append(";")
                     .append(separator);
         });
 

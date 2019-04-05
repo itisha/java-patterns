@@ -30,8 +30,8 @@ public class Demo {
         clazz = preprocess(clazz);
         System.out.println(clazz);
         assertEquals("public class Person {\n" +
-                        "\tpublic\tString\tname\n" +
-                        "\tpublic\tint\tage\n" +
+                        "\tpublic\tString\tname;\n" +
+                        "\tpublic\tint\tage;\n" +
                         "}",
                 clazz);
     }
