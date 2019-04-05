@@ -1,10 +1,10 @@
 package patterns.bridge.demo;
 
-import patterns.bridge.adapter.AlbumResourceAdapter;
-import patterns.bridge.adapter.ArtistResourceAdapter;
 import patterns.bridge.media.Album;
 import patterns.bridge.media.Artist;
 import patterns.bridge.media.Track;
+import patterns.bridge.resource.AlbumResourceAdapter;
+import patterns.bridge.resource.ArtistResourceAdapter;
 import patterns.bridge.view.LongFormView;
 import patterns.bridge.view.ShortFormView;
 

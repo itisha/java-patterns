@@ -1,7 +1,6 @@
-package patterns.bridge.adapter;
+package patterns.bridge.resource;
 
 import patterns.bridge.media.Author;
-import patterns.bridge.resource.Resource;
 
 public class AuthorResourceAdapter implements Resource {
 

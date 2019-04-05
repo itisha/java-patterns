@@ -1,8 +1,7 @@
-package patterns.bridge.adapter;
+package patterns.bridge.resource;
 
 import patterns.bridge.media.Album;
 import patterns.bridge.media.Track;
-import patterns.bridge.resource.Resource;
 
 import java.util.stream.Collectors;
 
@@ -21,7 +20,7 @@ public class AlbumResourceAdapter implements Resource {
 
     @Override
     public String getShortDescription() {
-        return album.getTitle() + album.getArtist();
+        return album.getTitle() + " by " + album.getArtist().getName();
     }
 
     @Override
