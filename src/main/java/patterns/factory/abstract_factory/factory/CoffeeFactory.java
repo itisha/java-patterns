@@ -7,7 +7,7 @@ public class CoffeeFactory implements HotDrinkFactory {
     @Override
     public HotDrink prepare(int amount) {
         System.out.println("Preparing " +
-                amount + " of coffee.");
+                amount + " of starbuzz.");
         return new Coffee();
     }
 }
