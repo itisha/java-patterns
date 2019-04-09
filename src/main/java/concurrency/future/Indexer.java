@@ -13,11 +13,11 @@ public class Indexer<T extends Weblink> implements Runnable {
         index(weblink);
     }
 
-    private void index(T weblink) {
-        if (weblink.getWebPage() != null) {
-            System.out.println("Weblink with id=" + weblink.getId() + " has been indexed. Size=" + weblink.getWebPage().getBytes().length / 1000 + "k");
+    private void index(Weblink weblink) {
+        if (weblink.getResponseCode() != null && weblink.getResponseCode() >= 200 && weblink.getResponseCode() < 300) {
+            weblink.setIndexingInfo("Success: " + weblink.getWebPage());
         } else {
-            System.out.println("ERROR: Weblink with id=" + weblink.getId() + " indexing timeout!");
+            weblink.setIndexingInfo("Error!");
         }
     }
 }

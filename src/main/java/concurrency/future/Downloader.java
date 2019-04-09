@@ -14,8 +14,10 @@ public class Downloader<T extends Weblink> implements Callable<T> {
 
     @Override
     public T call() throws Exception {
-        String webPage = HttpConnect.download(weblink.getUrl());
+        weblink.setStartTime(System.nanoTime());
+        String webPage = HttpConnect.download(weblink);
         weblink.setWebPage(webPage);
+        weblink.setEndTime(System.nanoTime());
         return weblink;
     }
 }

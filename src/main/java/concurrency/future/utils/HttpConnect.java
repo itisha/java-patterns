@@ -1,5 +1,7 @@
 package concurrency.future.utils;
 
+import concurrency.future.Weblink;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,20 +16,23 @@ import java.net.UnknownHostException;
 
 public class HttpConnect {
 
-    public static String download(String sourceUrl) throws MalformedURLException, URISyntaxException {
+    public static String download(Weblink weblink) throws MalformedURLException, URISyntaxException {
 
-        URL url = new URI(sourceUrl).toURL();
+        URL url = new URI(weblink.getUrl()).toURL();
         Integer responseCode = null;
         try {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             responseCode = con.getResponseCode();
+
+            weblink.setDownloadAttempted(true);
+            weblink.setResponseCode(responseCode);
 
             if (responseCode >= 200 && responseCode < 300) { // ok
                 return read(con.getInputStream());
             }
 
         } catch (UnknownHostException e) {
-            System.out.println("ERROR: URL=" + sourceUrl + " is unknown (responseCode=" + responseCode + ")");
+            System.out.println("ERROR: URL=" + weblink.getUrl() + " is unknown (responseCode=" + responseCode + ")");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -7,11 +7,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 public class Demo {
 
-    public static void main(String[] args) {
+    private static final long TIME_FRAME = 2_000_000_000L;// 2 seconds
+
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         List<Weblink> weblinks = new LinkedList<>();
 
         weblinks.add(new Weblink(1, "http://tut.by"));
@@ -20,45 +21,45 @@ public class Demo {
         weblinks.add(new Weblink(4, "http://google.com"));
         weblinks.add(new Weblink(5, "http://google.by"));
         weblinks.add(new Weblink(6, "http://mail.ru"));
-        weblinks.add(new Weblink(7, "http://zzzz.zz.zzzs.s.sda.asd.dd"));
+        weblinks.add(new Weblink(7, "http://t54t54t4"));
         weblinks.add(new Weblink(8, "http://vk.ru"));
         weblinks.add(new Weblink(9, "http://rambler.ru"));
 
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        ExecutorService downloadExecutor = Executors.newFixedThreadPool(2);
+        ExecutorService indexerExecutor = Executors.newFixedThreadPool(2);
 
-        go(weblinks, executorService);
+        go(weblinks, downloadExecutor, indexerExecutor);
     }
 
 
-    public static void go(List<Weblink> weblinks, ExecutorService executorService) {
+    public static void go(List<Weblink> weblinks, ExecutorService downloadExecutor, ExecutorService indexerExecutor) throws InterruptedException, ExecutionException {
 
-        List<Future<Weblink>> weblinkFutureList = new LinkedList<>();
 
-        weblinks.forEach(weblink -> {
+        List<Downloader<Weblink>> downloaders = new LinkedList<>();
+        weblinks.forEach(weblink -> downloaders.add(new Downloader<>(weblink)));
 
-            weblinkFutureList.add(executorService.submit(new Downloader<>(weblink)));
 
-            Thread downloaderThread = new Thread();
-            Thread indexerThread = new Thread(new Indexer<>(weblink));
+        //It’s not stated explicitly, but it uses Future.cancel(true), i.e. interrupt the running tasks
+        //Call to all the future.get() will not block here
+        List<Future<Weblink>> futures = downloadExecutor.invokeAll(downloaders, TIME_FRAME, TimeUnit.NANOSECONDS);
 
-            downloaderThread.start();
-            indexerThread.start();
-        });
 
-        weblinkFutureList.forEach(future -> {
-            try {
-                Weblink weblink = future.get(10, TimeUnit.SECONDS);
-                executorService.submit(new Indexer<>(weblink));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (TimeoutException e) {
-                e.printStackTrace();
+        for (Future<Weblink> future : futures) {
+            if (future.isCancelled()) {
+                System.out.println("Task is cancelled!");
+            } else if (!future.isDone()) {
+                System.out.println("Task is not done!");
+            } else {
+                indexerExecutor.execute(new Indexer<>(future.get()));
             }
-        });
+        }
+
+
+        downloadExecutor.shutdown();
+        indexerExecutor.shutdown();
+
+        weblinks.forEach(weblink -> System.out.println(weblink.toString()));
 
 
     }
-
 }
