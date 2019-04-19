@@ -1,4 +1,4 @@
-package patterns.bridge.resource;
+package patterns.bridge.itunes.resource;
 
 public interface Resource {
 

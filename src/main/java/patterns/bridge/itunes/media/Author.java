@@ -1,9 +1,8 @@
-package patterns.bridge.media;
+package patterns.bridge.itunes.media;
 
-public class Artist {
+public class Author {
 
     private String name;
-    private String genre;
     private String biography;
     private String imageUrl;
 
@@ -13,14 +12,6 @@ public class Artist {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
     }
 
     public String getBiography() {

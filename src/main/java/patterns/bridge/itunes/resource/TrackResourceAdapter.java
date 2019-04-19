@@ -1,6 +1,6 @@
-package patterns.bridge.resource;
+package patterns.bridge.itunes.resource;
 
-import patterns.bridge.media.Track;
+import patterns.bridge.itunes.media.Track;
 
 public class TrackResourceAdapter implements Resource {
 

@@ -1,7 +1,7 @@
-package patterns.bridge.resource;
+package patterns.bridge.itunes.resource;
 
-import patterns.bridge.media.Album;
-import patterns.bridge.media.Track;
+import patterns.bridge.itunes.media.Album;
+import patterns.bridge.itunes.media.Track;
 
 import java.util.stream.Collectors;
 

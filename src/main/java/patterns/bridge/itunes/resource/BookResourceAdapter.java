@@ -1,6 +1,6 @@
-package patterns.bridge.resource;
+package patterns.bridge.itunes.resource;
 
-import patterns.bridge.media.Book;
+import patterns.bridge.itunes.media.Book;
 
 public class BookResourceAdapter implements Resource {
 

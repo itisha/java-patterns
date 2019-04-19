@@ -1,6 +1,6 @@
-package patterns.bridge.view;
+package patterns.bridge.itunes.view;
 
-import patterns.bridge.resource.Resource;
+import patterns.bridge.itunes.resource.Resource;
 
 public class LongFormView extends View {
 

@@ -1,4 +1,4 @@
-package patterns.bridge.media;
+package patterns.bridge.itunes.media;
 
 import java.util.List;
 

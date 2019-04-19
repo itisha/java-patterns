@@ -1,12 +1,12 @@
-package patterns.bridge.demo;
+package patterns.bridge.itunes.demo;
 
-import patterns.bridge.media.Album;
-import patterns.bridge.media.Artist;
-import patterns.bridge.media.Track;
-import patterns.bridge.resource.AlbumResourceAdapter;
-import patterns.bridge.resource.ArtistResourceAdapter;
-import patterns.bridge.view.LongFormView;
-import patterns.bridge.view.ShortFormView;
+import patterns.bridge.itunes.media.Album;
+import patterns.bridge.itunes.media.Artist;
+import patterns.bridge.itunes.media.Track;
+import patterns.bridge.itunes.resource.AlbumResourceAdapter;
+import patterns.bridge.itunes.resource.ArtistResourceAdapter;
+import patterns.bridge.itunes.view.LongFormView;
+import patterns.bridge.itunes.view.ShortFormView;
 
 import java.util.Arrays;
 

@@ -1,6 +1,6 @@
-package patterns.bridge.resource;
+package patterns.bridge.itunes.resource;
 
-import patterns.bridge.media.Artist;
+import patterns.bridge.itunes.media.Artist;
 
 public class ArtistResourceAdapter implements Resource {
 

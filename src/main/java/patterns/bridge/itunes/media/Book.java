@@ -1,4 +1,4 @@
-package patterns.bridge.media;
+package patterns.bridge.itunes.media;
 
 public class Book {
 
